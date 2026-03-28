@@ -1,16 +1,15 @@
-name: Daily Weather Fetch
+name: Daily Weather Fetch & Deploy
 
 on:
   schedule:
-    - cron: '0 3 * * *' # Runs at 03:00 UTC daily (04:00 CET)
-  workflow_dispatch: # Allows you to run it manually from the GitHub UI
+    - cron: '0 3 * * *' # 04:00 AM CET
+  workflow_dispatch:
 
 jobs:
-  update-data:
+  update-and-deploy:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -19,15 +18,26 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm' # Speeds up the run
+
+      - name: Install Dependencies
+        run: npm install
 
       - name: Fetch Open-Meteo Data
         run: node scripts/fetch-weather.js
 
-      - name: Commit and Push changes
+      - name: Commit Data to Main
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add public/forecast.json
-          git commit -m "chore: daily weather data update" || exit 0
+          git commit -m "chore: daily weather update" || echo "No changes to commit"
           git push
 
+      - name: Deploy to GitHub Pages
+        run: |
+          # Use the deploy script from package.json
+          # We need to provide a GITHUB_TOKEN for gh-pages to push
+          npm run deploy -- -u "github-actions-bot <support+actions@github.com>"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
