@@ -1,0 +1,28 @@
+{
+  "name": "swiss-human-behavior-weather-radar",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "homepage": "https://roebi.github.io/swiss-human-behavior-weather-radar",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "vite lint",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "dependencies": {
+    "leaflet": "^1.9.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-leaflet": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^6.0.0",
+    "gh-pages": "^6.3.0",
+    "vite": "^8.0.3"
+  }
+}
