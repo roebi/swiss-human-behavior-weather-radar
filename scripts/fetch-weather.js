@@ -1,7 +1,11 @@
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-// Mirroring the locations from your frontend data
+// In ES Modules, we have to "create" __dirname
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const SWISS_LOCATIONS = [
   { name: 'Zurich', lat: 47.3769, lon: 8.5417 },
   { name: 'Geneva', lat: 46.2044, lon: 6.1432 },
@@ -22,7 +26,6 @@ async function fetchWeatherData() {
       const data = await response.json();
       
       const hourlyData = [];
-      // Extract exactly 24 hours for the current day
       for (let i = 0; i < 24; i++) {
         hourlyData.push({
           hour: i,
@@ -39,11 +42,9 @@ async function fetchWeatherData() {
     }
   }
 
-  // Write to the public folder so the React app can fetch it statically
   const outputPath = path.join(__dirname, '../public/forecast.json');
   fs.writeFileSync(outputPath, JSON.stringify(forecast, null, 2));
   console.log('Successfully written to public/forecast.json');
 }
 
 fetchWeatherData();
-
