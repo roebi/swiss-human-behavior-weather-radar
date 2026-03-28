@@ -2,23 +2,29 @@ name: Daily Weather Fetch & Deploy
 
 on:
   schedule:
-    - cron: '0 3 * * *' # 04:00 AM CET
-  workflow_dispatch:
+    - cron: '0 3 * * *' # 03:00 UTC = 04:00 AM CET
+  workflow_dispatch: # Allows manual trigger from the GitHub "Actions" tab
 
 jobs:
   update-and-deploy:
     runs-on: ubuntu-latest
+    
+    # Critical for allowing the bot to push changes
     permissions:
       contents: write
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          # Fetch all history so we can push to both main and gh-pages
+          fetch-depth: 0 
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm' # Speeds up the run
+          cache: 'npm'
 
       - name: Install Dependencies
         run: npm install
@@ -26,18 +32,23 @@ jobs:
       - name: Fetch Open-Meteo Data
         run: node scripts/fetch-weather.js
 
-      - name: Commit Data to Main
+      - name: Configure Git & Authenticate
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add public/forecast.json
-          git commit -m "chore: daily weather update" || echo "No changes to commit"
-          git push
+          # This line injects the token into the origin URL for all subsequent git commands
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
 
-      - name: Deploy to GitHub Pages
+      - name: Commit Data to Main
         run: |
-          # Use the deploy script from package.json
-          # We need to provide a GITHUB_TOKEN for gh-pages to push
-          npm run deploy -- -u "github-actions-bot <support+actions@github.com>"
+          git add public/forecast.json
+          # The '|| true' ensures the workflow doesn't fail if the weather hasn't changed
+          git commit -m "chore: daily weather data update [skip ci]" || true
+          git push origin main
+
+      - name: Build and Deploy to GitHub Pages
+        run: |
+          # We pass the authenticated repo URL directly to the gh-pages tool
+          npm run deploy -- --repo https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
