@@ -2,23 +2,22 @@ name: Daily Weather Fetch & Deploy
 
 on:
   schedule:
-    - cron: '0 3 * * *' # 03:00 UTC = 04:00 AM CET
-  workflow_dispatch: # Allows manual trigger from the GitHub "Actions" tab
+    - cron: '0 3 * * *' 
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
 
 jobs:
-  update-and-deploy:
+  update-and-build:
     runs-on: ubuntu-latest
-    
-    # Critical for allowing the bot to push changes
-    permissions:
-      contents: write
-
+    outputs:
+      committed: ${{ steps.commit.outputs.committed }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          # Fetch all history so we can push to both main and gh-pages
-          fetch-depth: 0 
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -32,23 +31,35 @@ jobs:
       - name: Fetch Open-Meteo Data
         run: node scripts/fetch-weather.js
 
-      - name: Configure Git & Authenticate
+      - name: Commit Data to Main
+        id: commit
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          # This line injects the token into the origin URL for all subsequent git commands
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
-
-      - name: Commit Data to Main
-        run: |
           git add public/forecast.json
-          # The '|| true' ensures the workflow doesn't fail if the weather hasn't changed
-          git commit -m "chore: daily weather data update [skip ci]" || true
-          git push origin main
+          if git commit -m "chore: daily weather update [skip ci]"; then
+            git push
+            echo "committed=true" >> $GITHUB_OUTPUT
+          else
+            echo "No changes to data"
+            echo "committed=false" >> $GITHUB_OUTPUT
+          fi
 
-      - name: Build and Deploy to GitHub Pages
-        run: |
-          # We pass the authenticated repo URL directly to the gh-pages tool
-          npm run deploy -- --repo https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build React App
+        run: npm run build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: update-and-build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
