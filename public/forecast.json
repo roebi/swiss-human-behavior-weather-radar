@@ -3,147 +3,147 @@
     "hourly": [
       {
         "hour": 0,
-        "temperature": 18.5,
+        "temperature": 15.7,
         "weatherCode": 3,
-        "windSpeed": 1.3
+        "windSpeed": 2.5
       },
       {
         "hour": 1,
-        "temperature": 18.3,
-        "weatherCode": 1,
-        "windSpeed": 2.3
+        "temperature": 15.5,
+        "weatherCode": 3,
+        "windSpeed": 1.5
       },
       {
         "hour": 2,
-        "temperature": 16.7,
+        "temperature": 15.2,
         "weatherCode": 3,
-        "windSpeed": 4.4
+        "windSpeed": 1
       },
       {
         "hour": 3,
-        "temperature": 15.8,
-        "weatherCode": 0,
-        "windSpeed": 4.1
+        "temperature": 14.6,
+        "weatherCode": 3,
+        "windSpeed": 1.5
       },
       {
         "hour": 4,
-        "temperature": 15.4,
-        "weatherCode": 2,
-        "windSpeed": 3.3
+        "temperature": 14,
+        "weatherCode": 3,
+        "windSpeed": 1.5
       },
       {
         "hour": 5,
-        "temperature": 14.2,
+        "temperature": 13.3,
         "weatherCode": 3,
-        "windSpeed": 1.8
+        "windSpeed": 1.5
       },
       {
         "hour": 6,
-        "temperature": 14.1,
+        "temperature": 12.7,
         "weatherCode": 3,
-        "windSpeed": 2.8
+        "windSpeed": 2.4
       },
       {
         "hour": 7,
-        "temperature": 14.1,
+        "temperature": 12.7,
         "weatherCode": 3,
-        "windSpeed": 1.6
+        "windSpeed": 3
       },
       {
         "hour": 8,
-        "temperature": 14.8,
+        "temperature": 13.3,
         "weatherCode": 3,
-        "windSpeed": 1.6
+        "windSpeed": 1
       },
       {
         "hour": 9,
-        "temperature": 16.1,
-        "weatherCode": 2,
-        "windSpeed": 2.9
+        "temperature": 14.5,
+        "weatherCode": 3,
+        "windSpeed": 2.2
       },
       {
         "hour": 10,
-        "temperature": 18.4,
+        "temperature": 15.9,
+        "weatherCode": 3,
+        "windSpeed": 4.7
+      },
+      {
+        "hour": 11,
+        "temperature": 17.1,
         "weatherCode": 3,
         "windSpeed": 6.8
       },
       {
-        "hour": 11,
-        "temperature": 19.4,
-        "weatherCode": 3,
-        "windSpeed": 6.2
-      },
-      {
         "hour": 12,
-        "temperature": 20.8,
-        "weatherCode": 3,
-        "windSpeed": 3.4
+        "temperature": 19.4,
+        "weatherCode": 2,
+        "windSpeed": 7.9
       },
       {
         "hour": 13,
-        "temperature": 22.5,
-        "weatherCode": 3,
-        "windSpeed": 2.1
+        "temperature": 20.9,
+        "weatherCode": 2,
+        "windSpeed": 8.4
       },
       {
         "hour": 14,
-        "temperature": 23.5,
-        "weatherCode": 3,
-        "windSpeed": 1.1
+        "temperature": 22,
+        "weatherCode": 2,
+        "windSpeed": 6.6
       },
       {
         "hour": 15,
-        "temperature": 24.4,
+        "temperature": 22.8,
         "weatherCode": 2,
-        "windSpeed": 2.9
+        "windSpeed": 5
       },
       {
         "hour": 16,
-        "temperature": 24.9,
+        "temperature": 23,
         "weatherCode": 3,
-        "windSpeed": 3.4
+        "windSpeed": 4.7
       },
       {
         "hour": 17,
-        "temperature": 24.7,
+        "temperature": 21.1,
         "weatherCode": 3,
-        "windSpeed": 10.2
+        "windSpeed": 14.2
       },
       {
         "hour": 18,
-        "temperature": 23.5,
+        "temperature": 19.2,
         "weatherCode": 3,
-        "windSpeed": 17.2
+        "windSpeed": 14.8
       },
       {
         "hour": 19,
-        "temperature": 16.4,
-        "weatherCode": 95,
-        "windSpeed": 21.3
+        "temperature": 17.5,
+        "weatherCode": 3,
+        "windSpeed": 9.8
       },
       {
         "hour": 20,
-        "temperature": 16.6,
-        "weatherCode": 61,
-        "windSpeed": 1.3
+        "temperature": 16.5,
+        "weatherCode": 3,
+        "windSpeed": 5.8
       },
       {
         "hour": 21,
-        "temperature": 16.5,
+        "temperature": 15.9,
         "weatherCode": 3,
-        "windSpeed": 6.6
+        "windSpeed": 4.3
       },
       {
         "hour": 22,
-        "temperature": 16.2,
+        "temperature": 15.7,
         "weatherCode": 3,
-        "windSpeed": 6.6
+        "windSpeed": 0.8
       },
       {
         "hour": 23,
-        "temperature": 15.8,
+        "temperature": 15.4,
         "weatherCode": 3,
-        "windSpeed": 4.5
+        "windSpeed": 0.8
       }
     ]
   },
@@ -151,147 +151,147 @@
     "hourly": [
       {
         "hour": 0,
-        "temperature": 17.1,
+        "temperature": 13.1,
         "weatherCode": 3,
-        "windSpeed": 7.7
+        "windSpeed": 2.1
       },
       {
         "hour": 1,
-        "temperature": 16.5,
-        "weatherCode": 3,
-        "windSpeed": 6.7
-      },
-      {
-        "hour": 2,
-        "temperature": 16.3,
-        "weatherCode": 3,
-        "windSpeed": 5.2
-      },
-      {
-        "hour": 3,
-        "temperature": 15.7,
-        "weatherCode": 61,
-        "windSpeed": 6.4
-      },
-      {
-        "hour": 4,
-        "temperature": 15.6,
-        "weatherCode": 3,
-        "windSpeed": 4.3
-      },
-      {
-        "hour": 5,
-        "temperature": 14.8,
-        "weatherCode": 3,
-        "windSpeed": 2.1
-      },
-      {
-        "hour": 6,
-        "temperature": 14.1,
-        "weatherCode": 61,
-        "windSpeed": 2.2
-      },
-      {
-        "hour": 7,
-        "temperature": 13.9,
-        "weatherCode": 3,
-        "windSpeed": 3.4
-      },
-      {
-        "hour": 8,
-        "temperature": 14.5,
-        "weatherCode": 3,
-        "windSpeed": 0.5
-      },
-      {
-        "hour": 9,
-        "temperature": 14.9,
-        "weatherCode": 80,
-        "windSpeed": 2.1
-      },
-      {
-        "hour": 10,
-        "temperature": 16.1,
-        "weatherCode": 3,
-        "windSpeed": 3.4
-      },
-      {
-        "hour": 11,
-        "temperature": 17,
-        "weatherCode": 3,
-        "windSpeed": 6.2
-      },
-      {
-        "hour": 12,
-        "temperature": 17.8,
-        "weatherCode": 3,
-        "windSpeed": 9.5
-      },
-      {
-        "hour": 13,
-        "temperature": 18.7,
-        "weatherCode": 3,
-        "windSpeed": 11.8
-      },
-      {
-        "hour": 14,
-        "temperature": 18.8,
-        "weatherCode": 3,
-        "windSpeed": 11.1
-      },
-      {
-        "hour": 15,
-        "temperature": 18.8,
-        "weatherCode": 3,
-        "windSpeed": 15.3
-      },
-      {
-        "hour": 16,
-        "temperature": 18.5,
-        "weatherCode": 61,
-        "windSpeed": 14.3
-      },
-      {
-        "hour": 17,
-        "temperature": 18.5,
-        "weatherCode": 3,
-        "windSpeed": 15.6
-      },
-      {
-        "hour": 18,
-        "temperature": 18,
-        "weatherCode": 61,
-        "windSpeed": 9.9
-      },
-      {
-        "hour": 19,
-        "temperature": 18.3,
-        "weatherCode": 80,
-        "windSpeed": 4.6
-      },
-      {
-        "hour": 20,
-        "temperature": 17.7,
-        "weatherCode": 3,
-        "windSpeed": 4.8
-      },
-      {
-        "hour": 21,
-        "temperature": 16.9,
-        "weatherCode": 80,
-        "windSpeed": 2.5
-      },
-      {
-        "hour": 22,
-        "temperature": 16.1,
+        "temperature": 12,
         "weatherCode": 3,
         "windSpeed": 0.4
       },
       {
-        "hour": 23,
-        "temperature": 14.9,
+        "hour": 2,
+        "temperature": 12.2,
         "weatherCode": 3,
-        "windSpeed": 1.9
+        "windSpeed": 2.1
+      },
+      {
+        "hour": 3,
+        "temperature": 12.1,
+        "weatherCode": 3,
+        "windSpeed": 1.1
+      },
+      {
+        "hour": 4,
+        "temperature": 11.5,
+        "weatherCode": 61,
+        "windSpeed": 2.3
+      },
+      {
+        "hour": 5,
+        "temperature": 11.8,
+        "weatherCode": 61,
+        "windSpeed": 2.9
+      },
+      {
+        "hour": 6,
+        "temperature": 11.9,
+        "weatherCode": 80,
+        "windSpeed": 3.6
+      },
+      {
+        "hour": 7,
+        "temperature": 11.4,
+        "weatherCode": 61,
+        "windSpeed": 3.4
+      },
+      {
+        "hour": 8,
+        "temperature": 11.9,
+        "weatherCode": 61,
+        "windSpeed": 1.6
+      },
+      {
+        "hour": 9,
+        "temperature": 12.5,
+        "weatherCode": 61,
+        "windSpeed": 2.9
+      },
+      {
+        "hour": 10,
+        "temperature": 13.2,
+        "weatherCode": 61,
+        "windSpeed": 4.8
+      },
+      {
+        "hour": 11,
+        "temperature": 14.1,
+        "weatherCode": 61,
+        "windSpeed": 2.5
+      },
+      {
+        "hour": 12,
+        "temperature": 14.7,
+        "weatherCode": 61,
+        "windSpeed": 6.1
+      },
+      {
+        "hour": 13,
+        "temperature": 14.8,
+        "weatherCode": 61,
+        "windSpeed": 8.1
+      },
+      {
+        "hour": 14,
+        "temperature": 14.7,
+        "weatherCode": 61,
+        "windSpeed": 1.3
+      },
+      {
+        "hour": 15,
+        "temperature": 14.7,
+        "weatherCode": 61,
+        "windSpeed": 3.7
+      },
+      {
+        "hour": 16,
+        "temperature": 14.6,
+        "weatherCode": 61,
+        "windSpeed": 4.5
+      },
+      {
+        "hour": 17,
+        "temperature": 14.5,
+        "weatherCode": 61,
+        "windSpeed": 4.4
+      },
+      {
+        "hour": 18,
+        "temperature": 14.2,
+        "weatherCode": 61,
+        "windSpeed": 4.8
+      },
+      {
+        "hour": 19,
+        "temperature": 14,
+        "weatherCode": 61,
+        "windSpeed": 5.8
+      },
+      {
+        "hour": 20,
+        "temperature": 14,
+        "weatherCode": 61,
+        "windSpeed": 5.9
+      },
+      {
+        "hour": 21,
+        "temperature": 14,
+        "weatherCode": 3,
+        "windSpeed": 4.1
+      },
+      {
+        "hour": 22,
+        "temperature": 13.9,
+        "weatherCode": 61,
+        "windSpeed": 0.7
+      },
+      {
+        "hour": 23,
+        "temperature": 13.6,
+        "weatherCode": 61,
+        "windSpeed": 2.3
       }
     ]
   },
@@ -299,147 +299,147 @@
     "hourly": [
       {
         "hour": 0,
-        "temperature": 12.5,
+        "temperature": 9.5,
         "weatherCode": 3,
-        "windSpeed": 1.3
+        "windSpeed": 3.5
       },
       {
         "hour": 1,
-        "temperature": 11.3,
-        "weatherCode": 3,
-        "windSpeed": 2.2
-      },
-      {
-        "hour": 2,
-        "temperature": 11,
-        "weatherCode": 3,
-        "windSpeed": 2.6
-      },
-      {
-        "hour": 3,
-        "temperature": 11.9,
-        "weatherCode": 3,
-        "windSpeed": 2.7
-      },
-      {
-        "hour": 4,
-        "temperature": 9.5,
+        "temperature": 8.5,
         "weatherCode": 3,
         "windSpeed": 4.2
       },
       {
-        "hour": 5,
-        "temperature": 9.6,
-        "weatherCode": 3,
-        "windSpeed": 4.7
+        "hour": 2,
+        "temperature": 8.9,
+        "weatherCode": 2,
+        "windSpeed": 4.3
       },
       {
-        "hour": 6,
+        "hour": 3,
+        "temperature": 8.7,
+        "weatherCode": 3,
+        "windSpeed": 4.4
+      },
+      {
+        "hour": 4,
         "temperature": 8.6,
         "weatherCode": 3,
-        "windSpeed": 2.3
+        "windSpeed": 3.4
       },
       {
-        "hour": 7,
-        "temperature": 9.1,
+        "hour": 5,
+        "temperature": 9,
         "weatherCode": 3,
         "windSpeed": 1.6
       },
       {
+        "hour": 6,
+        "temperature": 9.2,
+        "weatherCode": 80,
+        "windSpeed": 3.2
+      },
+      {
+        "hour": 7,
+        "temperature": 9.2,
+        "weatherCode": 61,
+        "windSpeed": 2.1
+      },
+      {
         "hour": 8,
-        "temperature": 10.6,
-        "weatherCode": 3,
+        "temperature": 10.2,
+        "weatherCode": 80,
         "windSpeed": 0.8
       },
       {
         "hour": 9,
-        "temperature": 14,
+        "temperature": 12.1,
         "weatherCode": 3,
-        "windSpeed": 2.6
+        "windSpeed": 3.8
       },
       {
         "hour": 10,
-        "temperature": 15.4,
-        "weatherCode": 3,
-        "windSpeed": 1.5
-      },
-      {
-        "hour": 11,
-        "temperature": 16.6,
-        "weatherCode": 3,
-        "windSpeed": 5.6
-      },
-      {
-        "hour": 12,
-        "temperature": 17.7,
-        "weatherCode": 3,
-        "windSpeed": 2.2
-      },
-      {
-        "hour": 13,
-        "temperature": 19.5,
-        "weatherCode": 3,
-        "windSpeed": 5.2
-      },
-      {
-        "hour": 14,
-        "temperature": 20.5,
-        "weatherCode": 3,
-        "windSpeed": 8.2
-      },
-      {
-        "hour": 15,
-        "temperature": 20.1,
-        "weatherCode": 3,
-        "windSpeed": 12.4
-      },
-      {
-        "hour": 16,
-        "temperature": 19.4,
-        "weatherCode": 3,
-        "windSpeed": 13.7
-      },
-      {
-        "hour": 17,
-        "temperature": 16.7,
-        "weatherCode": 61,
-        "windSpeed": 12.7
-      },
-      {
-        "hour": 18,
-        "temperature": 16.8,
-        "weatherCode": 61,
-        "windSpeed": 4.2
-      },
-      {
-        "hour": 19,
-        "temperature": 15.7,
-        "weatherCode": 61,
-        "windSpeed": 5.2
-      },
-      {
-        "hour": 20,
-        "temperature": 14.6,
+        "temperature": 13.6,
         "weatherCode": 3,
         "windSpeed": 5.7
       },
       {
-        "hour": 21,
-        "temperature": 12.5,
+        "hour": 11,
+        "temperature": 14.7,
         "weatherCode": 3,
-        "windSpeed": 3.3
+        "windSpeed": 5.4
       },
       {
-        "hour": 22,
-        "temperature": 11.4,
+        "hour": 12,
+        "temperature": 16.3,
         "weatherCode": 3,
+        "windSpeed": 5.4
+      },
+      {
+        "hour": 13,
+        "temperature": 17.4,
+        "weatherCode": 3,
+        "windSpeed": 7.9
+      },
+      {
+        "hour": 14,
+        "temperature": 17.2,
+        "weatherCode": 3,
+        "windSpeed": 8.5
+      },
+      {
+        "hour": 15,
+        "temperature": 16.2,
+        "weatherCode": 61,
+        "windSpeed": 12.6
+      },
+      {
+        "hour": 16,
+        "temperature": 14.7,
+        "weatherCode": 61,
+        "windSpeed": 9.7
+      },
+      {
+        "hour": 17,
+        "temperature": 14.4,
+        "weatherCode": 61,
+        "windSpeed": 10.8
+      },
+      {
+        "hour": 18,
+        "temperature": 14.1,
+        "weatherCode": 61,
         "windSpeed": 3.7
       },
       {
-        "hour": 23,
-        "temperature": 10.9,
+        "hour": 19,
+        "temperature": 14.2,
         "weatherCode": 3,
-        "windSpeed": 3.1
+        "windSpeed": 0.4
+      },
+      {
+        "hour": 20,
+        "temperature": 13.9,
+        "weatherCode": 3,
+        "windSpeed": 1.8
+      },
+      {
+        "hour": 21,
+        "temperature": 13.2,
+        "weatherCode": 3,
+        "windSpeed": 0.8
+      },
+      {
+        "hour": 22,
+        "temperature": 12.4,
+        "weatherCode": 3,
+        "windSpeed": 0.4
+      },
+      {
+        "hour": 23,
+        "temperature": 11,
+        "weatherCode": 3,
+        "windSpeed": 3.3
       }
     ]
   },
@@ -447,147 +447,147 @@
     "hourly": [
       {
         "hour": 0,
-        "temperature": 10.2,
-        "weatherCode": 3,
-        "windSpeed": 8.5
+        "temperature": 8.9,
+        "weatherCode": 2,
+        "windSpeed": 6.6
       },
       {
         "hour": 1,
-        "temperature": 9.6,
-        "weatherCode": 3,
-        "windSpeed": 5.1
+        "temperature": 8.4,
+        "weatherCode": 2,
+        "windSpeed": 4.8
       },
       {
         "hour": 2,
-        "temperature": 9.9,
+        "temperature": 8.8,
         "weatherCode": 3,
-        "windSpeed": 6.8
+        "windSpeed": 11.5
       },
       {
         "hour": 3,
-        "temperature": 9.6,
-        "weatherCode": 3,
-        "windSpeed": 6.1
+        "temperature": 8.8,
+        "weatherCode": 2,
+        "windSpeed": 11.8
       },
       {
         "hour": 4,
-        "temperature": 8.8,
-        "weatherCode": 3,
-        "windSpeed": 3.2
+        "temperature": 8.4,
+        "weatherCode": 2,
+        "windSpeed": 3
       },
       {
         "hour": 5,
-        "temperature": 9.3,
-        "weatherCode": 3,
-        "windSpeed": 4.2
+        "temperature": 8.6,
+        "weatherCode": 2,
+        "windSpeed": 7.8
       },
       {
         "hour": 6,
-        "temperature": 8.6,
+        "temperature": 8.2,
         "weatherCode": 3,
-        "windSpeed": 1.8
+        "windSpeed": 5.2
       },
       {
         "hour": 7,
-        "temperature": 8,
-        "weatherCode": 3,
-        "windSpeed": 2.7
+        "temperature": 8.4,
+        "weatherCode": 2,
+        "windSpeed": 8.6
       },
       {
         "hour": 8,
         "temperature": 9,
         "weatherCode": 3,
-        "windSpeed": 1.5
+        "windSpeed": 5
       },
       {
         "hour": 9,
-        "temperature": 11.3,
+        "temperature": 9.7,
         "weatherCode": 3,
-        "windSpeed": 1.9
+        "windSpeed": 8.8
       },
       {
         "hour": 10,
-        "temperature": 12.3,
-        "weatherCode": 3,
-        "windSpeed": 10.9
-      },
-      {
-        "hour": 11,
-        "temperature": 12.7,
-        "weatherCode": 3,
-        "windSpeed": 12.1
-      },
-      {
-        "hour": 12,
-        "temperature": 13.5,
-        "weatherCode": 3,
-        "windSpeed": 10.4
-      },
-      {
-        "hour": 13,
-        "temperature": 13.7,
-        "weatherCode": 2,
-        "windSpeed": 13.1
-      },
-      {
-        "hour": 14,
-        "temperature": 14,
-        "weatherCode": 3,
-        "windSpeed": 12.7
-      },
-      {
-        "hour": 15,
-        "temperature": 13.7,
+        "temperature": 10.7,
         "weatherCode": 3,
         "windSpeed": 14.4
       },
       {
-        "hour": 16,
-        "temperature": 13.3,
-        "weatherCode": 3,
+        "hour": 11,
+        "temperature": 11,
+        "weatherCode": 2,
         "windSpeed": 15.1
       },
       {
-        "hour": 17,
-        "temperature": 12.7,
+        "hour": 12,
+        "temperature": 11.9,
         "weatherCode": 3,
         "windSpeed": 14
       },
       {
-        "hour": 18,
-        "temperature": 12,
+        "hour": 13,
+        "temperature": 11.6,
         "weatherCode": 3,
-        "windSpeed": 14.1
+        "windSpeed": 14.8
+      },
+      {
+        "hour": 14,
+        "temperature": 11.3,
+        "weatherCode": 3,
+        "windSpeed": 14.8
+      },
+      {
+        "hour": 15,
+        "temperature": 11.3,
+        "weatherCode": 3,
+        "windSpeed": 12.6
+      },
+      {
+        "hour": 16,
+        "temperature": 10.8,
+        "weatherCode": 3,
+        "windSpeed": 12.6
+      },
+      {
+        "hour": 17,
+        "temperature": 10.6,
+        "weatherCode": 3,
+        "windSpeed": 8
+      },
+      {
+        "hour": 18,
+        "temperature": 10.3,
+        "weatherCode": 3,
+        "windSpeed": 13.7
       },
       {
         "hour": 19,
-        "temperature": 11.4,
-        "weatherCode": 3,
-        "windSpeed": 13
+        "temperature": 9.7,
+        "weatherCode": 80,
+        "windSpeed": 8.3
       },
       {
         "hour": 20,
-        "temperature": 10.9,
+        "temperature": 9,
         "weatherCode": 3,
-        "windSpeed": 8.6
+        "windSpeed": 10.5
       },
       {
         "hour": 21,
-        "temperature": 10.4,
+        "temperature": 8.5,
         "weatherCode": 3,
-        "windSpeed": 7.6
+        "windSpeed": 4.7
       },
       {
         "hour": 22,
-        "temperature": 9.9,
+        "temperature": 7.6,
         "weatherCode": 3,
-        "windSpeed": 7.6
+        "windSpeed": 2.5
       },
       {
         "hour": 23,
-        "temperature": 9.5,
+        "temperature": 7.7,
         "weatherCode": 3,
-        "windSpeed": 4.7
+        "windSpeed": 6.6
       }
     ]
   },
@@ -595,147 +595,147 @@
     "hourly": [
       {
         "hour": 0,
-        "temperature": 4,
+        "temperature": 6.6,
         "weatherCode": 3,
-        "windSpeed": 6.5
+        "windSpeed": 8
       },
       {
         "hour": 1,
-        "temperature": 3.4,
-        "weatherCode": 3,
-        "windSpeed": 5.7
-      },
-      {
-        "hour": 2,
-        "temperature": 2.9,
-        "weatherCode": 1,
-        "windSpeed": 4.4
-      },
-      {
-        "hour": 3,
-        "temperature": 3,
-        "weatherCode": 3,
-        "windSpeed": 3.9
-      },
-      {
-        "hour": 4,
-        "temperature": 3.2,
-        "weatherCode": 3,
-        "windSpeed": 2.6
-      },
-      {
-        "hour": 5,
-        "temperature": 2.5,
-        "weatherCode": 2,
-        "windSpeed": 1.8
-      },
-      {
-        "hour": 6,
-        "temperature": 2.2,
-        "weatherCode": 1,
-        "windSpeed": 1.1
-      },
-      {
-        "hour": 7,
-        "temperature": 2.6,
-        "weatherCode": 1,
-        "windSpeed": 2.3
-      },
-      {
-        "hour": 8,
-        "temperature": 4.7,
-        "weatherCode": 2,
-        "windSpeed": 2.3
-      },
-      {
-        "hour": 9,
-        "temperature": 7.3,
-        "weatherCode": 3,
-        "windSpeed": 0.8
-      },
-      {
-        "hour": 10,
-        "temperature": 8.9,
-        "weatherCode": 3,
-        "windSpeed": 3
-      },
-      {
-        "hour": 11,
-        "temperature": 10.6,
-        "weatherCode": 3,
-        "windSpeed": 5.1
-      },
-      {
-        "hour": 12,
-        "temperature": 12.3,
-        "weatherCode": 3,
-        "windSpeed": 10.5
-      },
-      {
-        "hour": 13,
-        "temperature": 12.8,
-        "weatherCode": 3,
-        "windSpeed": 14.3
-      },
-      {
-        "hour": 14,
-        "temperature": 12.8,
-        "weatherCode": 3,
-        "windSpeed": 18.4
-      },
-      {
-        "hour": 15,
-        "temperature": 12.3,
-        "weatherCode": 3,
-        "windSpeed": 21.7
-      },
-      {
-        "hour": 16,
-        "temperature": 12.1,
-        "weatherCode": 3,
-        "windSpeed": 21
-      },
-      {
-        "hour": 17,
-        "temperature": 11.4,
-        "weatherCode": 3,
-        "windSpeed": 20.4
-      },
-      {
-        "hour": 18,
-        "temperature": 10.5,
-        "weatherCode": 3,
-        "windSpeed": 19.6
-      },
-      {
-        "hour": 19,
-        "temperature": 9.7,
-        "weatherCode": 3,
-        "windSpeed": 14.3
-      },
-      {
-        "hour": 20,
-        "temperature": 8.4,
-        "weatherCode": 3,
-        "windSpeed": 11.5
-      },
-      {
-        "hour": 21,
-        "temperature": 6.3,
-        "weatherCode": 3,
-        "windSpeed": 7.1
-      },
-      {
-        "hour": 22,
-        "temperature": 5,
+        "temperature": 5.1,
         "weatherCode": 3,
         "windSpeed": 6.4
       },
       {
-        "hour": 23,
-        "temperature": 4.3,
+        "hour": 2,
+        "temperature": 4.5,
         "weatherCode": 3,
-        "windSpeed": 5.6
+        "windSpeed": 5.8
+      },
+      {
+        "hour": 3,
+        "temperature": 3.7,
+        "weatherCode": 3,
+        "windSpeed": 5.5
+      },
+      {
+        "hour": 4,
+        "temperature": 3.3,
+        "weatherCode": 3,
+        "windSpeed": 4.8
+      },
+      {
+        "hour": 5,
+        "temperature": 2.9,
+        "weatherCode": 3,
+        "windSpeed": 2.6
+      },
+      {
+        "hour": 6,
+        "temperature": 2.8,
+        "weatherCode": 3,
+        "windSpeed": 0.8
+      },
+      {
+        "hour": 7,
+        "temperature": 3.1,
+        "weatherCode": 3,
+        "windSpeed": 1.3
+      },
+      {
+        "hour": 8,
+        "temperature": 4.8,
+        "weatherCode": 2,
+        "windSpeed": 2.9
+      },
+      {
+        "hour": 9,
+        "temperature": 8,
+        "weatherCode": 3,
+        "windSpeed": 3.3
+      },
+      {
+        "hour": 10,
+        "temperature": 9.6,
+        "weatherCode": 3,
+        "windSpeed": 15
+      },
+      {
+        "hour": 11,
+        "temperature": 9.9,
+        "weatherCode": 3,
+        "windSpeed": 20.2
+      },
+      {
+        "hour": 12,
+        "temperature": 10.5,
+        "weatherCode": 3,
+        "windSpeed": 23.1
+      },
+      {
+        "hour": 13,
+        "temperature": 11,
+        "weatherCode": 3,
+        "windSpeed": 27.4
+      },
+      {
+        "hour": 14,
+        "temperature": 10.7,
+        "weatherCode": 3,
+        "windSpeed": 26
+      },
+      {
+        "hour": 15,
+        "temperature": 11.6,
+        "weatherCode": 3,
+        "windSpeed": 26.2
+      },
+      {
+        "hour": 16,
+        "temperature": 10.8,
+        "weatherCode": 3,
+        "windSpeed": 29.6
+      },
+      {
+        "hour": 17,
+        "temperature": 9.5,
+        "weatherCode": 3,
+        "windSpeed": 29.2
+      },
+      {
+        "hour": 18,
+        "temperature": 8.5,
+        "weatherCode": 3,
+        "windSpeed": 27.5
+      },
+      {
+        "hour": 19,
+        "temperature": 7.4,
+        "weatherCode": 3,
+        "windSpeed": 24.2
+      },
+      {
+        "hour": 20,
+        "temperature": 6.6,
+        "weatherCode": 3,
+        "windSpeed": 18.4
+      },
+      {
+        "hour": 21,
+        "temperature": 6.2,
+        "weatherCode": 3,
+        "windSpeed": 11
+      },
+      {
+        "hour": 22,
+        "temperature": 5.4,
+        "weatherCode": 3,
+        "windSpeed": 5.8
+      },
+      {
+        "hour": 23,
+        "temperature": 4.9,
+        "weatherCode": 3,
+        "windSpeed": 4.2
       }
     ]
   },
@@ -743,147 +743,147 @@
     "hourly": [
       {
         "hour": 0,
-        "temperature": 12.1,
-        "weatherCode": 1,
-        "windSpeed": 3.9
+        "temperature": 13.7,
+        "weatherCode": 3,
+        "windSpeed": 2.8
       },
       {
         "hour": 1,
-        "temperature": 11.8,
-        "weatherCode": 2,
-        "windSpeed": 3.6
-      },
-      {
-        "hour": 2,
-        "temperature": 11.9,
-        "weatherCode": 3,
-        "windSpeed": 3.1
-      },
-      {
-        "hour": 3,
-        "temperature": 11.3,
-        "weatherCode": 3,
-        "windSpeed": 4.6
-      },
-      {
-        "hour": 4,
-        "temperature": 10.6,
-        "weatherCode": 2,
-        "windSpeed": 4.5
-      },
-      {
-        "hour": 5,
-        "temperature": 10.2,
-        "weatherCode": 2,
-        "windSpeed": 3.3
-      },
-      {
-        "hour": 6,
-        "temperature": 9.8,
-        "weatherCode": 3,
+        "temperature": 13.2,
+        "weatherCode": 61,
         "windSpeed": 4.2
       },
       {
-        "hour": 7,
-        "temperature": 9.7,
+        "hour": 2,
+        "temperature": 13.4,
         "weatherCode": 3,
-        "windSpeed": 3.2
+        "windSpeed": 3.6
+      },
+      {
+        "hour": 3,
+        "temperature": 12.7,
+        "weatherCode": 3,
+        "windSpeed": 5.5
+      },
+      {
+        "hour": 4,
+        "temperature": 12.5,
+        "weatherCode": 3,
+        "windSpeed": 2.7
+      },
+      {
+        "hour": 5,
+        "temperature": 12.2,
+        "weatherCode": 2,
+        "windSpeed": 3.9
+      },
+      {
+        "hour": 6,
+        "temperature": 12.2,
+        "weatherCode": 2,
+        "windSpeed": 3.9
+      },
+      {
+        "hour": 7,
+        "temperature": 11.4,
+        "weatherCode": 3,
+        "windSpeed": 4.1
       },
       {
         "hour": 8,
-        "temperature": 11.7,
+        "temperature": 13,
         "weatherCode": 3,
-        "windSpeed": 1
+        "windSpeed": 1.5
       },
       {
         "hour": 9,
-        "temperature": 14.4,
+        "temperature": 14.8,
         "weatherCode": 3,
-        "windSpeed": 1
+        "windSpeed": 1.3
       },
       {
         "hour": 10,
-        "temperature": 16.3,
+        "temperature": 16.5,
         "weatherCode": 3,
-        "windSpeed": 1.1
+        "windSpeed": 1.3
       },
       {
         "hour": 11,
         "temperature": 18.2,
         "weatherCode": 3,
-        "windSpeed": 1
+        "windSpeed": 6.6
       },
       {
         "hour": 12,
-        "temperature": 20,
+        "temperature": 18.8,
         "weatherCode": 3,
-        "windSpeed": 0.8
+        "windSpeed": 11.6
       },
       {
         "hour": 13,
-        "temperature": 21.4,
+        "temperature": 20,
         "weatherCode": 3,
-        "windSpeed": 6.4
+        "windSpeed": 7.4
       },
       {
         "hour": 14,
-        "temperature": 21.7,
+        "temperature": 20.2,
         "weatherCode": 3,
-        "windSpeed": 11
+        "windSpeed": 12
       },
       {
         "hour": 15,
-        "temperature": 22,
-        "weatherCode": 2,
+        "temperature": 19.9,
+        "weatherCode": 3,
         "windSpeed": 12
       },
       {
         "hour": 16,
-        "temperature": 22.1,
-        "weatherCode": 2,
-        "windSpeed": 12.6
+        "temperature": 20,
+        "weatherCode": 3,
+        "windSpeed": 8.8
       },
       {
         "hour": 17,
-        "temperature": 22.1,
+        "temperature": 20,
         "weatherCode": 3,
-        "windSpeed": 12.2
+        "windSpeed": 4.7
       },
       {
         "hour": 18,
-        "temperature": 21.7,
+        "temperature": 19.9,
         "weatherCode": 3,
-        "windSpeed": 7.3
+        "windSpeed": 6.3
       },
       {
         "hour": 19,
-        "temperature": 21.4,
+        "temperature": 19.4,
         "weatherCode": 3,
-        "windSpeed": 6.5
+        "windSpeed": 4
       },
       {
         "hour": 20,
-        "temperature": 20,
+        "temperature": 18.4,
         "weatherCode": 3,
-        "windSpeed": 1.8
+        "windSpeed": 4
       },
       {
         "hour": 21,
-        "temperature": 16.2,
+        "temperature": 16.6,
         "weatherCode": 3,
-        "windSpeed": 4.1
+        "windSpeed": 3.9
       },
       {
         "hour": 22,
-        "temperature": 14.5,
+        "temperature": 14.6,
         "weatherCode": 3,
-        "windSpeed": 3.8
+        "windSpeed": 4.4
       },
       {
         "hour": 23,
-        "temperature": 13.8,
+        "temperature": 13.9,
         "weatherCode": 3,
-        "windSpeed": 2.6
+        "windSpeed": 4.3
       }
     ]
   }
