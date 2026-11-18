@@ -1,133 +1,106 @@
-//
-// WeatherRadar.jsx
-//
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
-import { SWISS_LOCATIONS } from './data';
-import { determinePersona } from './regelwerk';
+import { SWISS_LOCATIONS } from './data.js';
+import { determinePersona } from './regelwerk.js';
 
-// Custom hook to handle the "current time" logic
-const useCurrentHour = () => {
-  const [currentHour, setCurrentHour] = useState(new Date().getHours());
-  return { currentHour, setCurrentHour };
-};
+const createEmojiIcon = (symbol) => L.divIcon({
+  html: `<span aria-hidden="true">${symbol}</span>`,
+  className: 'custom-emoji-icon',
+  iconSize: [42, 42],
+  iconAnchor: [21, 21],
+  popupAnchor: [0, -18],
+});
 
 const WeatherRadar = ({ precalculatedData }) => {
-  const { currentHour, setCurrentHour } = useCurrentHour();
+  const [currentHour, setCurrentHour] = useState(new Date().getHours());
   const [isPlaying, setIsPlaying] = useState(false);
 
-  // Optional: Auto-play the timeline
   useEffect(() => {
-    let interval;
-    if (isPlaying) {
-      interval = setInterval(() => {
-        setCurrentHour((prev) => (prev === 23 ? 0 : prev + 1));
-      }, 1000); // Advances 1 hour per second
-    }
-    return () => clearInterval(interval);
-  }, [isPlaying, setCurrentHour]);
+    if (!isPlaying) return undefined;
+    const interval = window.setInterval(() => {
+      setCurrentHour((hour) => (hour === 23 ? 0 : hour + 1));
+    }, 1000);
+    return () => window.clearInterval(interval);
+  }, [isPlaying]);
 
-  // Helper to create a custom Leaflet icon from an emoji string
-  const createEmojiIcon = (symbol, className) => {
-    return L.divIcon({
-      html: `<div class="${className} drop-shadow-lg" style="font-size: 2rem; text-align: center;">${symbol}</div>`,
-      className: 'custom-emoji-icon',
-      iconSize: [40, 40],
-      iconAnchor: [20, 20],
-    });
-  };
+  const availableLocations = SWISS_LOCATIONS.filter((location) =>
+    Array.isArray(precalculatedData[location.name]?.hourly),
+  );
 
   return (
-    <div className="flex flex-col h-screen w-full bg-slate-100 p-4">
-      <h1 className="text-2xl font-bold mb-4">🇨🇭 Swiss Persona Radar</h1>
-      
-      {/* 24-Hour Ruler / Time Slider */}
-      <div className="bg-white p-4 rounded-lg shadow-md mb-4 flex flex-col gap-4">
-        <div className="flex justify-between items-center">
-          <button 
-            onClick={() => setIsPlaying(!isPlaying)}
-            className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-          >
-            {isPlaying ? '⏸ Pause' : '▶ Play Day'}
+    <main className="radar-app">
+      <header className="radar-header">
+        <div>
+          <h1>🇨🇭 Swiss Persona Radar</h1>
+          <p className="radar-subtitle">A playful, hourly view of weather across Switzerland</p>
+        </div>
+      </header>
+
+      <section className="radar-controls" aria-label="Forecast timeline controls">
+        <div className="radar-control-row">
+          <button type="button" onClick={() => setIsPlaying((playing) => !playing)}>
+            {isPlaying ? '⏸ Pause' : '▶ Play day'}
           </button>
-          <span className="text-xl font-mono font-semibold">
-            {String(currentHour).padStart(2, '0')}:00 CET
-          </span>
-          <button 
-            onClick={() => setCurrentHour(new Date().getHours())}
-            className="px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300"
-          >
-            Reset to Now
+          <span className="radar-time" aria-live="polite">{String(currentHour).padStart(2, '0')}:00 local time</span>
+          <button className="secondary-button" type="button" onClick={() => setCurrentHour(new Date().getHours())}>
+            Reset to now
           </button>
         </div>
-
-        <input 
-          type="range" 
-          min="0" 
-          max="23" 
-          value={currentHour} 
-          onChange={(e) => {
-            setIsPlaying(false); // Stop autoplay if user manually scrubs
-            setCurrentHour(parseInt(e.target.value));
+        <input
+          aria-label="Forecast hour"
+          type="range"
+          min="0"
+          max="23"
+          value={currentHour}
+          onChange={(event) => {
+            setIsPlaying(false);
+            setCurrentHour(Number(event.target.value));
           }}
-          className="w-full h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer"
         />
-        <div className="flex justify-between text-xs text-gray-500">
-          <span>00:00</span>
-          <span>06:00</span>
-          <span>12:00</span>
-          <span>18:00</span>
-          <span>23:00</span>
+        <div className="radar-hours" aria-hidden="true">
+          <span>00:00</span><span>06:00</span><span>12:00</span><span>18:00</span><span>23:00</span>
         </div>
-      </div>
+      </section>
 
-      {/* The Map */}
-      <div className="flex-grow rounded-lg overflow-hidden shadow-lg border-2 border-slate-300">
-        <MapContainer 
-          center={[46.8182, 8.2275]} // Center of Switzerland
-          zoom={8} 
-          style={{ height: '100%', width: '100%' }}
-        >
+      <section className="radar-map" aria-label="Weather map of Switzerland">
+        <MapContainer center={[46.8182, 8.2275]} zoom={8} scrollWheelZoom={false}>
           <TileLayer
             url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
             attribution='&copy; <a href="https://carto.com/">CARTO</a>'
           />
-
-          {/* Render our Persona Markers based on the selected hour */}
-          {SWISS_LOCATIONS.map((loc) => {
-            // In a real app, you pull this specific hour's data from your precalculated JSON
-            const hourData = precalculatedData[loc.name]?.hourly[currentHour]; 
-            
+          {availableLocations.map((location) => {
+            const hourData = precalculatedData[location.name].hourly[currentHour];
             if (!hourData) return null;
-
             const persona = determinePersona(
-              hourData.weatherCode, 
-              hourData.temperature, 
-              hourData.windSpeed, 
-              loc.alt
+              hourData.weatherCode,
+              hourData.temperature,
+              hourData.windSpeed,
+              location.alt,
             );
-
             return (
-              <Marker 
-                key={loc.name} 
-                position={[loc.lat, loc.lon]} 
-                icon={createEmojiIcon(persona.symbol, persona.size)}
+              <Marker
+                key={location.name}
+                position={[location.lat, location.lon]}
+                icon={createEmojiIcon(persona.symbol)}
               >
                 <Popup>
-                  <strong>{loc.name} ({loc.alt}m)</strong><br/>
-                  Time: {currentHour}:00<br/>
-                  Temp: {hourData.temperature}°C<br/>
-                  Status: {persona.description}
+                  <strong>{location.name} ({location.alt} m)</strong><br />
+                  {String(currentHour).padStart(2, '0')}:00 local time<br />
+                  Temperature: {hourData.temperature}°C<br />
+                  Wind: {hourData.windSpeed} km/h<br />
+                  {persona.description}
                 </Popup>
               </Marker>
             );
           })}
         </MapContainer>
-      </div>
-    </div>
+      </section>
+      <footer className="radar-footer">
+        {availableLocations.length} of {SWISS_LOCATIONS.length} locations · Forecast is precomputed once daily
+      </footer>
+    </main>
   );
 };
 
 export default WeatherRadar;
-
