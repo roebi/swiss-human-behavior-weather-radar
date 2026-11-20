@@ -1,124 +1,20 @@
-# swiss-human-behavior-weather-radar
+# 🇨🇭 Swiss Human Behavior Weather Radar
 
-> 🇨🇭 Swiss Persona Radar
+A small static React map that turns the hourly weather forecast for six Swiss locations into playful weather personas.
 
-## project structure
-
-```tree
-swiss-persona-radar/
-
-├── .devcontainer
-│   └── maintainer
-│       └── devcontainer.json
-├── .git
-├── .github/
-│   └── workflows/
-│       └── update-weather.yml
-├── LICENSE
-├── public/
-│   └── forecast.json         (Generated automatically, needs empty placeholder)
-├── README.md
-├── scripts/
-│   └── fetch-weather.js      (The Node.js script to run every morning)
-├── src/
-│   ├── App.jsx               (Entry point)
-│   ├── data.js               (Locations)
-│   ├── regelwerk.js          (Rulebook)
-│   └── WeatherRadar.jsx      (Main Component)
-└── package.json
-```
-
-## automation & data fetching
+## Run locally
 
 ```bash
-.github/workflows/update-weather.yml
+npm install
+npm run dev
 ```
 
-This GitHub Action runs every day at 04:00 AM CET (03:00 UTC).
+## Weather data and API usage
 
-It fetches the weather data
+The app does not call the weather API from visitors' browsers. A scheduled GitHub Actions job fetches a 24-hour forecast once daily and publishes it as a static JSON file. The updater makes a single Open-Meteo request per day that covers all six locations. No API key is needed for Open-Meteo's free forecast endpoint. If an update fails, the workflow exits with an error and does not replace the last known-good forecast.
 
-generates the JSON
+GitHub Pages is static hosting, so there is no app server that needs to be kept running, shut down, or restarted. It serves the page when requested; map tiles are loaded only while a visitor has the map open. The map background uses swisstopo's free national map tiles, which need no API key.
 
-and commits it back to your repository.
+## Deployment
 
-## the weather fetch script
-
-```bash
-scripts/fetch-weather.js
-```
-
-This script loops through your locations
-
-hits the free Open-Meteo API
-
-formats the next 24 hours of data
-
-and writes it to public/forecast.json.
-
-## frontend App React
-
-```bash
-src/App.jsx
-```
-
-The entry point that fetches the static JSON file
-
-and passes it to the radar component.
-
-## swiss locations
-
-```bash
-src/data.js
-```
-
-list of the swiss locations
-
-## rules from weather data to symbol - core
-
-```bash
-src/regelwerk.js
-```
-
-logic engine - the core idea behind
-
-## frontend React Leaflet Component (Radar & Time Slider)
-
-```bash
-src/WeatherRadar.jsx
-```
-
-uses react-leaflet to plot the precalculatedData on the map
-
-This component assumes you are passing the pre-calculated 24-hour array to it.
-
-The Ruler defaults to the current hour if no ruler value is manually set.
-
-Use / depends on react-leaflet and leaflet for the map rendering.
-
-## dependencies
-
-```bash
-package.json
-```
-
-Snippet of required dependencies.
-
-need to ensure that these are installed in the React environment
-
-(via Vite, Create React App, or Next.js)
-
-```bash
-{
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "leaflet": "^1.9.4",
-    "react-leaflet": "^4.2.1"
-  }
-}
-```
-
-## license
-
-MIT
+The GitHub Actions workflow builds the app and deploys it to GitHub Pages. The frontend resolves its forecast URL from Vite's configured base path so the published subdirectory works correctly.

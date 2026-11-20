@@ -1,8 +1,7 @@
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-// In ES Modules, we have to "create" __dirname
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -12,39 +11,55 @@ const SWISS_LOCATIONS = [
   { name: 'Bern', lat: 46.9480, lon: 7.4474 },
   { name: 'Zermatt', lat: 46.0207, lon: 7.7491 },
   { name: 'St. Moritz', lat: 46.4908, lon: 9.8355 },
-  { name: 'Lugano', lat: 46.0037, lon: 8.9511 }
+  { name: 'Lugano', lat: 46.0037, lon: 8.9511 },
 ];
 
 async function fetchWeatherData() {
-  const forecast = {};
+  // Keep the free API load minimal: one request per day covers all locations.
+  const url = new URL('https://api.open-meteo.com/v1/forecast');
+  url.search = new URLSearchParams({
+    latitude: SWISS_LOCATIONS.map((location) => location.lat).join(','),
+    longitude: SWISS_LOCATIONS.map((location) => location.lon).join(','),
+    hourly: 'temperature_2m,weather_code,wind_speed_10m',
+    forecast_days: '1',
+    timezone: 'Europe/Zurich',
+  }).toString();
 
-  for (const loc of SWISS_LOCATIONS) {
-    const url = `https://api.open-meteo.com/v1/forecast?latitude=${loc.lat}&longitude=${loc.lon}&hourly=temperature_2m,weather_code,wind_speed_10m&forecast_days=1&timezone=Europe%2FBerlin`;
-    
-    try {
-      const response = await fetch(url);
-      const data = await response.json();
-      
-      const hourlyData = [];
-      for (let i = 0; i < 24; i++) {
-        hourlyData.push({
-          hour: i,
-          temperature: data.hourly.temperature_2m[i],
-          weatherCode: data.hourly.weather_code[i],
-          windSpeed: data.hourly.wind_speed_10m[i]
-        });
-      }
-      
-      forecast[loc.name] = { hourly: hourlyData };
-      console.log(`Fetched data for ${loc.name}`);
-    } catch (error) {
-      console.error(`Failed to fetch data for ${loc.name}:`, error);
+  const response = await fetch(url, { signal: AbortSignal.timeout(15000) });
+  if (!response.ok) {
+    throw new Error(`Open-Meteo request failed: HTTP ${response.status}`);
+  }
+
+  const results = await response.json();
+  if (!Array.isArray(results) || results.length !== SWISS_LOCATIONS.length) {
+    throw new Error(`Open-Meteo returned ${Array.isArray(results) ? results.length : 'no'} results for ${SWISS_LOCATIONS.length} locations`);
+  }
+
+  const forecast = {};
+  // Open-Meteo returns one result per coordinate pair, in request order.
+  for (const [index, location] of SWISS_LOCATIONS.entries()) {
+    const { hourly } = results[index];
+    if (!hourly?.time || !hourly.temperature_2m || !hourly.weather_code || !hourly.wind_speed_10m) {
+      throw new Error(`Open-Meteo returned incomplete hourly data for ${location.name}`);
     }
+
+    forecast[location.name] = {
+      hourly: hourly.time.map((time, indexInDay) => ({
+        hour: Number(time.slice(11, 13)),
+        temperature: hourly.temperature_2m[indexInDay],
+        weatherCode: hourly.weather_code[indexInDay],
+        windSpeed: hourly.wind_speed_10m[indexInDay],
+      })),
+    };
+    console.log(`Fetched data for ${location.name}`);
   }
 
   const outputPath = path.join(__dirname, '../public/forecast.json');
-  fs.writeFileSync(outputPath, JSON.stringify(forecast, null, 2));
+  fs.writeFileSync(outputPath, `${JSON.stringify(forecast, null, 2)}\n`);
   console.log('Successfully written to public/forecast.json');
 }
 
-fetchWeatherData();
+fetchWeatherData().catch((error) => {
+  console.error('Weather update failed; keeping the existing forecast file:', error);
+  process.exitCode = 1;
+});
