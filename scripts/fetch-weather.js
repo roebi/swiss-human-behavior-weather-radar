@@ -14,40 +14,41 @@ const SWISS_LOCATIONS = [
   { name: 'Lugano', lat: 46.0037, lon: 8.9511 },
 ];
 
-const pause = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));
-
 async function fetchWeatherData() {
+  // Keep the free API load minimal: one request per day covers all locations.
+  const url = new URL('https://api.open-meteo.com/v1/forecast');
+  url.search = new URLSearchParams({
+    latitude: SWISS_LOCATIONS.map((location) => location.lat).join(','),
+    longitude: SWISS_LOCATIONS.map((location) => location.lon).join(','),
+    hourly: 'temperature_2m,weather_code,wind_speed_10m',
+    forecast_days: '1',
+    timezone: 'Europe/Zurich',
+  }).toString();
+
+  const response = await fetch(url, { signal: AbortSignal.timeout(15000) });
+  if (!response.ok) {
+    throw new Error(`Open-Meteo request failed: HTTP ${response.status}`);
+  }
+
+  const results = await response.json();
+  if (!Array.isArray(results) || results.length !== SWISS_LOCATIONS.length) {
+    throw new Error(`Open-Meteo returned ${Array.isArray(results) ? results.length : 'no'} results for ${SWISS_LOCATIONS.length} locations`);
+  }
+
   const forecast = {};
-
-  // Keep the free API load modest: make just one sequential request per location per day.
+  // Open-Meteo returns one result per coordinate pair, in request order.
   for (const [index, location] of SWISS_LOCATIONS.entries()) {
-    if (index > 0) await pause(1000);
-
-    const url = new URL('https://api.open-meteo.com/v1/forecast');
-    url.search = new URLSearchParams({
-      latitude: location.lat,
-      longitude: location.lon,
-      hourly: 'temperature_2m,weather_code,wind_speed_10m',
-      forecast_days: '1',
-      timezone: 'Europe/Zurich',
-    }).toString();
-
-    const response = await fetch(url, { signal: AbortSignal.timeout(15000) });
-    if (!response.ok) {
-      throw new Error(`Open-Meteo request for ${location.name} failed: HTTP ${response.status}`);
-    }
-
-    const data = await response.json();
-    if (!data.hourly?.time || !data.hourly.temperature_2m || !data.hourly.weather_code || !data.hourly.wind_speed_10m) {
+    const { hourly } = results[index];
+    if (!hourly?.time || !hourly.temperature_2m || !hourly.weather_code || !hourly.wind_speed_10m) {
       throw new Error(`Open-Meteo returned incomplete hourly data for ${location.name}`);
     }
 
     forecast[location.name] = {
-      hourly: data.hourly.time.map((time, indexInDay) => ({
+      hourly: hourly.time.map((time, indexInDay) => ({
         hour: Number(time.slice(11, 13)),
-        temperature: data.hourly.temperature_2m[indexInDay],
-        weatherCode: data.hourly.weather_code[indexInDay],
-        windSpeed: data.hourly.wind_speed_10m[indexInDay],
+        temperature: hourly.temperature_2m[indexInDay],
+        weatherCode: hourly.weather_code[indexInDay],
+        windSpeed: hourly.wind_speed_10m[indexInDay],
       })),
     };
     console.log(`Fetched data for ${location.name}`);

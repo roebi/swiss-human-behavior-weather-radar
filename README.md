@@ -11,9 +11,9 @@ npm run dev
 
 ## Weather data and API usage
 
-The app does not call the weather API from visitors' browsers. A scheduled GitHub Actions job fetches a 24-hour forecast once daily and publishes it as a static JSON file. The updater makes six sequential Open-Meteo requests (one per location), with a one-second pause between requests. No API key is needed for Open-Meteo's free forecast endpoint. If an update fails, the workflow exits with an error and does not replace the last known-good forecast.
+The app does not call the weather API from visitors' browsers. A scheduled GitHub Actions job fetches a 24-hour forecast once daily and publishes it as a static JSON file. The updater makes a single Open-Meteo request per day that covers all six locations. No API key is needed for Open-Meteo's free forecast endpoint. If an update fails, the workflow exits with an error and does not replace the last known-good forecast.
 
-GitHub Pages is static hosting, so there is no app server that needs to be kept running, shut down, or restarted. It serves the page when requested; map tiles are loaded only while a visitor has the map open.
+GitHub Pages is static hosting, so there is no app server that needs to be kept running, shut down, or restarted. It serves the page when requested; map tiles are loaded only while a visitor has the map open. The map background uses swisstopo's free national map tiles, which need no API key.
 
 ## Deployment
 
