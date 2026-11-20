@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
-import { SWISS_LOCATIONS } from './data.js';
+import { toLocations } from './data.js';
 import { determinePersona } from './regelwerk.js';
 
 const createEmojiIcon = (symbol) => L.divIcon({
@@ -24,9 +24,7 @@ const WeatherRadar = ({ precalculatedData }) => {
     return () => window.clearInterval(interval);
   }, [isPlaying]);
 
-  const availableLocations = SWISS_LOCATIONS.filter((location) =>
-    Array.isArray(precalculatedData[location.name]?.hourly),
-  );
+  const locations = toLocations(precalculatedData);
 
   return (
     <main className="radar-app">
@@ -70,8 +68,8 @@ const WeatherRadar = ({ precalculatedData }) => {
             attribution='&copy; <a href="https://www.swisstopo.admin.ch/">swisstopo</a>'
             maxZoom={18}
           />
-          {availableLocations.map((location) => {
-            const hourData = precalculatedData[location.name].hourly[currentHour];
+          {locations.map((location) => {
+            const hourData = location.hourly[currentHour];
             if (!hourData) return null;
             const persona = determinePersona(
               hourData.weatherCode,
@@ -81,7 +79,7 @@ const WeatherRadar = ({ precalculatedData }) => {
             );
             return (
               <Marker
-                key={location.name}
+                key={`${location.name}-${location.lat}-${location.lon}`}
                 position={[location.lat, location.lon]}
                 icon={createEmojiIcon(persona.symbol)}
               >
@@ -98,7 +96,7 @@ const WeatherRadar = ({ precalculatedData }) => {
         </MapContainer>
       </section>
       <footer className="radar-footer">
-        {availableLocations.length} of {SWISS_LOCATIONS.length} locations · Forecast is precomputed once daily
+        {locations.length} random Swiss places · New places and forecast once daily
       </footer>
     </main>
   );
