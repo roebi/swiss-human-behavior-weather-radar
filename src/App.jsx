@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import WeatherRadar from './WeatherRadar.jsx';
+import { toLocations } from './data.js';
 import 'leaflet/dist/leaflet.css';
 import './index.css';
 
@@ -19,7 +20,7 @@ function App() {
         return response.json();
       })
       .then((data) => {
-        if (!data || typeof data !== 'object' || Object.keys(data).length === 0) {
+        if (toLocations(data).length === 0) {
           throw new Error('The forecast file is empty or invalid.');
         }
         setWeatherData(data);
